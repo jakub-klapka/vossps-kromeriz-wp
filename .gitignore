@@ -1,0 +1,6 @@
+*
+!.gitignore
+!wp-content
+!wp-content/themes
+!wp-content/themes/vossps_km
+!wp-content/themes/vossps_km/**
