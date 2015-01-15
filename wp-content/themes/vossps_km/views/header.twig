@@ -1,0 +1,51 @@
+<header class="main_header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+	<div class="main_header__inner">
+
+		<nav class="main_header__quick_menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+			<ul class="main_header__quick_menu__ul">
+				<li class="main_header__quick_menu__ul__item">
+					<a href="{{ site.url }}" itemprop="name url">
+						<svg class="main_header__quick_menu__ul__item__icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
+						Hlavní strana
+					</a>
+				</li>
+				<li class="main_header__quick_menu__ul__item">
+					<span class="main_header__quick_menu__ul__item__placeholder" itemprop="name url">
+						<svg class="main_header__quick_menu__ul__item__icon" aria-hidden="true"><use xlink:href="#icon-books"></use></svg>
+						Studium
+					</span>
+					<ul class="main_header__quick_menu__ul__item__submenu" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<li class="main_header__quick_menu__ul__item__submenu__item"><a href="" itemprop="name url">Středoškolské</a></li>
+						<li class="main_header__quick_menu__ul__item__submenu__item"><a href="" itemprop="name url">Vyšší odborné</a></li>
+						<li class="main_header__quick_menu__ul__item__submenu__item"><a href="" itemprop="name url">Další vzdělávání</a></li>
+					</ul>
+				</li>
+				<li class="main_header__quick_menu__ul__item">
+					<a href="#obecne_o_skole" itemprop="name url">
+						<svg class="main_header__quick_menu__ul__item__icon" aria-hidden="true"><use xlink:href="#icon-info"></use></svg>
+						Obecně o škole
+					</a>
+				</li>
+				<li class="main_header__quick_menu__ul__item">
+					<a href="{{ dokumenty_permalink }}" itemprop="name url">
+						<svg class="main_header__quick_menu__ul__item__icon" aria-hidden="true"><use xlink:href="#icon-documents"></use></svg>
+						Dokumenty školy
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<h2 class="main_header__tagline">Vyšší odborná škola pedagogická a sociální<br/>
+			a Střední pedagogická škola Kroměříž</h2>
+
+		<a class="main_header__photo_link" href="{{ fotogalerie_permalink }}">
+			Fotogalerie
+			<svg class="main_header__photo_link__image" aria-hidden="true"><use xlink:href="#icon-photos"></use></svg>
+		</a>
+
+		<a class="main_header__logo" href="{{ site.url }}" itemprop="image url">
+			<svg class="main_header__logo__image" role="img" title="Logo" alt="Logo" itemprop="image"><use xlink:href="#icon-logo"></use></svg>
+		</a>
+
+	</div>
+</header>

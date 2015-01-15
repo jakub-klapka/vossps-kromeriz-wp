@@ -14,7 +14,9 @@ class PluginConfig {
 		add_filter( 'wpseo_use_page_analysis', function() {return false;} );
 
 		add_action( 'init', function() {
-			remove_action( 'wpseo_head', array( $GLOBALS['wpseo_front'], 'debug_marker' ), 2 );
+			if( isset( $GLOBALS['wpseo_front'] ) ) {
+				remove_action( 'wpseo_head', array( $GLOBALS['wpseo_front'], 'debug_marker' ), 2 );
+			}
 		} );
 
 		/*

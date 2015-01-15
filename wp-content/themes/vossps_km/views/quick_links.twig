@@ -1,0 +1,33 @@
+<section class="quick_links is-wo_slider">
+	<div class="quick_links__wrap">
+
+		<div class="quick_links__wrap__item">
+			<svg class="quick_links__wrap__item__icon" title="Adresa" alt="Adresa"><use xlink:href="#icon-building"></use></svg>
+			<div class="quick_links__wrap__item__content">
+				{{ school_address }}
+			</div>
+		</div>
+
+		<div class="quick_links__wrap__item">
+			<svg class="quick_links__wrap__item__icon" title="Telefon" alt="Telefon"><use xlink:href="#icon-phone"></use></svg>
+			<div class="quick_links__wrap__item__content">
+				{{ school_tel }}
+			</div>
+		</div>
+
+		<div class="quick_links__wrap__item">
+			<svg class="quick_links__wrap__item__icon" title="E-mail" alt="E-mail"><use xlink:href="#icon-letter"></use></svg>
+			<div class="quick_links__wrap__item__content">
+				{% filter shortcodes %}[lumi-email]{{ school_email }}[/lumi-email]{% endfilter %}
+			</div>
+		</div>
+
+		<div class="quick_links__wrap__item">
+			<svg class="quick_links__wrap__item__icon" aria-hidden="true"><use xlink:href="#icon-group"></use></svg>
+			<div class="quick_links__wrap__item__content">
+				<a href="#kontakty_na_zamestnance">Kontakty na<br/>zaměstnance</a>
+			</div>
+		</div>
+
+	</div>
+</section>

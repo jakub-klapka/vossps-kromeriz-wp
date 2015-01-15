@@ -21,126 +21,13 @@
 <body>
 <div id="svg_sprite_wrap" style="display: none;"></div>
 
-<header class="main_header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
-	<div class="main_header__inner">
+{% include 'header.twig' %}
 
-		<nav class="main_header__quick_menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			<ul class="main_header__quick_menu__ul">
-				<li class="main_header__quick_menu__ul__item">
-					<a href="{{ site.url }}" itemprop="name url">
-						<svg class="main_header__quick_menu__ul__item__icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-						Hlavní strana
-					</a>
-				</li>
-				<li class="main_header__quick_menu__ul__item">
-					<span class="main_header__quick_menu__ul__item__placeholder" itemprop="name url">
-						<svg class="main_header__quick_menu__ul__item__icon" aria-hidden="true"><use xlink:href="#icon-books"></use></svg>
-						Studium
-					</span>
-					<ul class="main_header__quick_menu__ul__item__submenu" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<li class="main_header__quick_menu__ul__item__submenu__item"><a href="" itemprop="name url">Středoškolské</a></li>
-						<li class="main_header__quick_menu__ul__item__submenu__item"><a href="" itemprop="name url">Vyšší odborné</a></li>
-						<li class="main_header__quick_menu__ul__item__submenu__item"><a href="" itemprop="name url">Další vzdělávání</a></li>
-					</ul>
-				</li>
-				<li class="main_header__quick_menu__ul__item">
-					<a href="#obecne_o_skole" itemprop="name url">
-						<svg class="main_header__quick_menu__ul__item__icon" aria-hidden="true"><use xlink:href="#icon-info"></use></svg>
-						Obecně o škole
-					</a>
-				</li>
-				<li class="main_header__quick_menu__ul__item">
-					<a href="{{ dokumenty_permalink }}" itemprop="name url">
-						<svg class="main_header__quick_menu__ul__item__icon" aria-hidden="true"><use xlink:href="#icon-documents"></use></svg>
-						Dokumenty školy
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-		<h2 class="main_header__tagline">Vyšší odborná škola pedagogická a sociální<br/>
-			a Střední pedagogická škola Kroměříž</h2>
-
-		<a class="main_header__photo_link" href="{{ fotogalerie_permalink }}">
-			Fotogalerie
-			<svg class="main_header__photo_link__image" aria-hidden="true"><use xlink:href="#icon-photos"></use></svg>
-		</a>
-
-		<a class="main_header__logo" href="{{ site.url }}" itemprop="image url">
-			<svg class="main_header__logo__image" role="img" title="Logo" alt="Logo" itemprop="image"><use xlink:href="#icon-logo"></use></svg>
-		</a>
-
-	</div>
-</header>
-
-<section class="quick_links is-wo_slider">
-	<div class="quick_links__wrap">
-
-		<div class="quick_links__wrap__item">
-			<svg class="quick_links__wrap__item__icon" title="Adresa" alt="Adresa"><use xlink:href="#icon-building"></use></svg>
-			<div class="quick_links__wrap__item__content">
-				{{ school_address }}
-			</div>
-		</div>
-
-		<div class="quick_links__wrap__item">
-			<svg class="quick_links__wrap__item__icon" title="Telefon" alt="Telefon"><use xlink:href="#icon-phone"></use></svg>
-			<div class="quick_links__wrap__item__content">
-				{{ school_tel }}
-			</div>
-		</div>
-
-		<div class="quick_links__wrap__item">
-			<svg class="quick_links__wrap__item__icon" title="E-mail" alt="E-mail"><use xlink:href="#icon-letter"></use></svg>
-			<div class="quick_links__wrap__item__content">
-				{% filter shortcodes %}[lumi-email]{{ school_email }}[/lumi-email]{% endfilter %}
-			</div>
-		</div>
-
-		<div class="quick_links__wrap__item">
-			<svg class="quick_links__wrap__item__icon" aria-hidden="true"><use xlink:href="#icon-group"></use></svg>
-			<div class="quick_links__wrap__item__content">
-				<a href="#kontakty_na_zamestnance">Kontakty na<br/>zaměstnance</a>
-			</div>
-		</div>
-
-	</div>
-</section>
+{% include 'quick_links.twig' %}
 
 <div class="main_content_wrap">
 
-	<aside class="main_sidebar" role="complementary">
-
-		<nav class="main_sidebar__nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			<ul class="main_sidebar__nav__ul">
-				<li class="main_sidebar__nav__ul__item is-stredoskolske">
-					<a href="" itemprop="name url">
-						<div class="main_sidebar__nav__ul__item__icon" aria-hidden="true">
-							<svg><use xlink:href="#icon-books"></use></svg>
-						</div>
-						<span>Středoškolské studium</span>
-					</a>
-				</li>
-				<li class="main_sidebar__nav__ul__item is-vyssi">
-					<a href="" itemprop="name url">
-						<div class="main_sidebar__nav__ul__item__icon" aria-hidden="true">
-							<svg><use xlink:href="#icon-graduation"></use></svg>
-						</div>
-						<span>Vyšší odborné studium</span>
-					</a>
-				</li>
-				<li class="main_sidebar__nav__ul__item is-dalsi">
-					<a href="" itemprop="name url">
-						<div class="main_sidebar__nav__ul__item__icon" aria-hidden="true">
-							<svg><use xlink:href="#icon-presentation"></use></svg>
-						</div>
-						<span>Další vzdělávání</span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-
-	</aside>
+	{% include 'main_sidebar.twig' %}
 
 	<article class="main_content content_typo is-dalsi_vzdelavani" role="main" itemprop="mainContentOfPage">
 

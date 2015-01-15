@@ -4,6 +4,9 @@
 namespace Lumi\Frontend;
 
 
+use Lumi\Classes\SidebarMenu;
+
+
 class Layout {
 
 	private $static_ver = 1;
@@ -15,10 +18,12 @@ class Layout {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		add_action( 'timber_context', array( $this, 'add_custom_context_data' ) );
+		add_filter( 'timber_context', array( $this, 'add_custom_context_data' ) );
 		
 		add_action( 'acf/format_value', array( $this, 'strogify_acf_output' ), 10, 3 );
 		add_action( 'acf/format_value', array( $this, 'wrap_school_address' ), 15, 3 );
+
+		add_filter( 'timber_context', array( $this, 'add_sidebar_menu' ) );
 
 	}
 
@@ -77,6 +82,14 @@ class Layout {
 		$value = str_replace( '</strong>', '</address></strong>', $value );
 		return $value;
 	}
+
+	public function add_sidebar_menu( $data ) {
+
+		$menu = SidebarMenu::getMenu();
+
+		return $data;
+	}
+
 
 
 
