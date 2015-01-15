@@ -54,15 +54,27 @@ class SidebarMenuAPI {
 			'post_parent__in' => $parents,
 		) );
 
-		$current_ancestors = new WP_Query( array(
-			'post_type' => 'studium',
-			'posts_per_page' => -1,
-			'post__in' => $include_also,
-			'post_parent__not_in' => array( 0 )
-		) );
+		$output = $root_and_children->posts;
 
-		//merge results
-		return array_merge( $root_and_children->posts, $current_ancestors->posts, array( $wp_post ) );
+		if( !empty( $include_also ) ){
+
+			$current_ancestors = new WP_Query( array(
+				'post_type' => 'studium',
+				'posts_per_page' => -1,
+				'post__in' => $include_also,
+				'post_parent__not_in' => array( 0 )
+			) );
+
+			$output = array_merge( $output, $current_ancestors->posts );
+
+		}
+
+		if( $wp_post !== null ) {
+			$output = array_merge( $output, array( $wp_post ) );
+		}
+
+		return $output;
+
 	}
 
 	private function move_children_under_parents( $pages ) {
@@ -118,6 +130,52 @@ class SidebarMenuAPI {
 		ksort( $new_pages );
 
 		return $new_pages;
+	}
+
+	public function getFlatteredMenu() {
+
+		$output = array();
+
+		foreach( $this->menu as $page ) {
+
+			//create children array
+			$children = array();
+			$is_active = true; //helper
+			$this->generate_children_array( $page, $children, $is_active );
+
+			//construct toplevel item
+			$output[] = array(
+				'name' => $page->post_title,
+				'url' => get_permalink( $page->ID ),
+				'children' => $children
+			);
+
+		};
+
+		return $output;
+
+	}
+
+	private function generate_children_array( $page, &$children, &$is_active ) {
+
+		foreach( $page->children as $child ){
+			$children[] = array(
+				'name' => $child->post_title,
+				'url' => get_permalink( $child->ID ),
+				'is_active' => $is_active
+			);
+
+			//Once we hit current post in menu, all folowing are not active for sure
+			$current_post = get_post();
+			if( $child->ID === $current_post->ID ){
+				$is_active = false;
+			}
+
+			if( !empty( $child->children ) ) {
+				$this->generate_children_array( $child, $children, $is_active );
+			}
+		}
+
 	}
 
 }

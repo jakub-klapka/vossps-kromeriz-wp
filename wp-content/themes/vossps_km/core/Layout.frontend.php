@@ -87,6 +87,8 @@ class Layout {
 
 		$menu = SidebarMenu::getMenu();
 
+		$data['sidebar_menu'] = $menu->getFlatteredMenu();
+
 		return $data;
 	}
 
