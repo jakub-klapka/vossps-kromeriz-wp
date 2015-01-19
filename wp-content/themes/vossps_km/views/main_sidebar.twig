@@ -1,32 +1,36 @@
 <aside class="main_sidebar" role="complementary">
-
-	<nav class="main_sidebar__nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-		<ul class="main_sidebar__nav__ul">
-			<li class="main_sidebar__nav__ul__item is-stredoskolske">
-				<a href="" itemprop="name url">
-					<div class="main_sidebar__nav__ul__item__icon" aria-hidden="true">
-						<svg><use xlink:href="#icon-books"></use></svg>
-					</div>
-					<span>Středoškolské studium</span>
-				</a>
-			</li>
-			<li class="main_sidebar__nav__ul__item is-vyssi">
-				<a href="" itemprop="name url">
-					<div class="main_sidebar__nav__ul__item__icon" aria-hidden="true">
-						<svg><use xlink:href="#icon-graduation"></use></svg>
-					</div>
-					<span>Vyšší odborné studium</span>
-				</a>
-			</li>
-			<li class="main_sidebar__nav__ul__item is-dalsi">
-				<a href="" itemprop="name url">
-					<div class="main_sidebar__nav__ul__item__icon" aria-hidden="true">
-						<svg><use xlink:href="#icon-presentation"></use></svg>
-					</div>
-					<span>Další vzdělávání</span>
-				</a>
-			</li>
-		</ul>
-	</nav>
-
+	{% if sidebar_menu %}
+		<nav class="main_sidebar__nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+			<ul class="main_sidebar__nav__ul">
+				{% for menu_item in sidebar_menu %}
+					{% if menu_item.is_ss %}
+						{% set li_class, icon_name = 'is-stredoskolske', 'books' %}
+					{% endif %}
+					{% if menu_item.is_vos %}
+						{% set li_class, icon_name = 'is-vyssi', 'graduation' %}
+					{% endif %}
+					{% if menu_item.is_dv %}
+						{% set li_class, icon_name = 'is-dalsi', 'presentation' %}
+					{% endif %}
+					<li class="main_sidebar__nav__ul__item {{ li_class }}">
+						<a href="{{ menu_item.url }}" itemprop="name url">
+							<div class="main_sidebar__nav__ul__item__icon" aria-hidden="true">
+								<svg><use xlink:href="#icon-{{ icon_name }}"></use></svg>
+							</div>
+							<span>{{ menu_item.name }}</span>
+						</a>
+						{% if menu_item.children %}
+							<ul class="main_sidebar__nav__ul__submenu">
+								{% for child in menu_item.children %}
+									<li class="main_sidebar__nav__ul__submenu__item{% if child.is_active %} is-active{% endif %}">
+										<a href="{{ child.url }}">{{ child.name }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
+	{% endif %}
 </aside>

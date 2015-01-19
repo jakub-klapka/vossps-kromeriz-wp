@@ -145,6 +145,7 @@ class SidebarMenuAPI {
 
 			//construct toplevel item
 			$output[] = array(
+				'id' => $page->ID,
 				'name' => $page->post_title,
 				'url' => get_permalink( $page->ID ),
 				'children' => $children

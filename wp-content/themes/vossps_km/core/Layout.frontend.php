@@ -12,6 +12,9 @@ class Layout {
 	private $static_ver = 1;
 	private $dokumenty_id = 12;
 	private $fotogalerie_id = 15;
+	private $ss_id = 22;
+	private $vos_id = 24;
+	private $dv_id = 26;
 
 
 	public function __construct() {
@@ -86,8 +89,22 @@ class Layout {
 	public function add_sidebar_menu( $data ) {
 
 		$menu = SidebarMenu::getMenu();
+		$flatered_menu = $menu->getFlatteredMenu();
 
-		$data['sidebar_menu'] = $menu->getFlatteredMenu();
+		foreach( $flatered_menu as $key => $item ) {
+			switch( $item['id'] ){
+				case( $this->ss_id ):
+					$flatered_menu[$key]['is_ss'] = true;
+					break;
+				case( $this->vos_id ):
+					$flatered_menu[$key]['is_vos'] = true;
+					break;
+				case( $this->dv_id ):
+					$flatered_menu[$key]['is_dv'] = true;
+			}
+		}
+
+		$data['sidebar_menu'] = $flatered_menu;
 
 		return $data;
 	}
