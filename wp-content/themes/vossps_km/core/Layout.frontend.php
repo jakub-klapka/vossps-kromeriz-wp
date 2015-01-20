@@ -5,6 +5,7 @@ namespace Lumi\Frontend;
 
 
 use Lumi\Classes\SidebarMenu;
+use TimberPost;
 
 
 class Layout {
@@ -33,6 +34,8 @@ class Layout {
 		add_action( 'timber_context', array( $this, 'add_about_school' ) );
 
 		add_action( 'timber_context', array( $this, 'add_admin_url' ) );
+
+		add_action( 'timber_context', array( $this, 'add_page_theme' ) );
 
 	}
 
@@ -128,6 +131,43 @@ class Layout {
 
 	public function add_admin_url( $context ) {
 		$context['admin_url'] = admin_url();
+		return $context;
+	}
+
+	public function add_page_theme( $context ) {
+
+		$page_theme = 'ss'; //default
+
+		if( is_singular( 'page' ) ){
+			$page_theme = ( get_field( 'page_theme' ) ) ? get_field( 'page_theme' ) : 'ss';
+		}
+
+		if( is_singular( 'studium' ) ){
+
+			$tpost = new TimberPost();
+
+			$iterative_parent = $tpost;
+			while( $iterative_parent !== false ){
+				$top_level_parent = $iterative_parent;
+				$iterative_parent = $iterative_parent->parent();
+			};
+
+			switch( $top_level_parent->ID ){
+				case( $this->ss_id ):
+					$page_theme = 'ss';
+					break;
+				case( $this->vos_id ):
+					$page_theme = 'vos';
+					break;
+				case( $this->dv_id ):
+					$page_theme = 'dv';
+					break;
+				default:
+					$page_theme = 'ss';
+			}
+		}
+
+		$context['page_theme'] = $page_theme;
 		return $context;
 	}
 

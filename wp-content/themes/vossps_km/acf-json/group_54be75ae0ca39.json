@@ -1,0 +1,52 @@
+{
+    "key": "group_54be75ae0ca39",
+    "title": "Vlastnosti str\u00e1nky",
+    "fields": [
+        {
+            "key": "field_54be75bf7cf84",
+            "label": "Barevn\u00e9 sch\u00e9ma str\u00e1nky",
+            "name": "page_theme",
+            "prefix": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "ss": "St\u0159edo\u0161kolsk\u00e9 studium",
+                "vos": "Vy\u0161\u0161\u00ed odborn\u00e9 studium",
+                "dv": "Dal\u0161\u00ed vzd\u011bl\u00e1v\u00e1n\u00ed"
+            },
+            "default_value": {
+                "ss": "ss"
+            },
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "disabled": 0,
+            "readonly": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "modified": 1421768216
+}

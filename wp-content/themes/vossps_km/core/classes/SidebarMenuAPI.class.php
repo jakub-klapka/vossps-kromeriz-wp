@@ -32,15 +32,14 @@ class SidebarMenuAPI {
 	private function query_required_pages() {
 		$post = new TimberPost();
 		$wp_post = get_post();
+		$output = array();
 
 		$parents = array( 0 ); //Also always query top level items
 
-		if( get_post_type() === 'studium' ) {
+		if( $post->post_type === 'studium' ) {
 
 			//Add current page as parent to query all it's children
-			if( $post->post_type === 'studium' ) {
-				$parents[] = $post->ID;
-			}
+			$parents[] = $post->ID;
 
 			//Include all current ancestors
 			$include_also = array();
@@ -49,6 +48,8 @@ class SidebarMenuAPI {
 				$include_also[] = $current_post_parent->ID;
 				$current_post_parent = $current_post_parent->parent();
 			};
+
+			$output = array_merge( $output, array( $wp_post ) );
 
 		}
 
@@ -60,7 +61,7 @@ class SidebarMenuAPI {
 			'post_parent__in' => $parents,
 		) );
 
-		$output = $root_and_children->posts;
+		$output = array_merge( $output, $root_and_children->posts );
 
 		if( !empty( $include_also ) ){
 
@@ -73,10 +74,6 @@ class SidebarMenuAPI {
 
 			$output = array_merge( $output, $current_ancestors->posts );
 
-		}
-
-		if( $wp_post !== null ) {
-			$output = array_merge( $output, array( $wp_post ) );
 		}
 
 		return $output;

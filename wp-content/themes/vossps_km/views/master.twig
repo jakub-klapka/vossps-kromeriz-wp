@@ -29,7 +29,11 @@
 
 	{% include 'main_sidebar.twig' %}
 
-	<article class="main_content content_typo is-dalsi_vzdelavani" role="main" itemprop="mainContentOfPage">
+	{% set main_content_class = ( page_theme == 'ss' ) ? 'is-stredoskolske' %}
+	{% set main_content_class = ( page_theme == 'vos' ) ? 'is-vyssi_odborne' : main_content_class %}
+	{% set main_content_class = ( page_theme == 'dv' ) ? 'is-dalsi_vzdelavani' : main_content_class %}
+
+	<article class="main_content content_typo{% if main_content_class %} {{ main_content_class }}{% endif %}" role="main" itemprop="mainContentOfPage">
 
 		<nav class="main_content__breadcrumbs" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			<ul class="main_content__breadcrumbs__menu">
@@ -38,7 +42,7 @@
 			</ul>
 		</nav>
 
-		<h1><span class="heading_icon" aria-hidden="true"><svg><use xlink:href="#icon-presentation"></use></svg></span>Další vzdělávání</h1>
+		<h1><span class="heading_icon" aria-hidden="true"><svg><use xlink:href="#icon-presentation"></use></svg></span>{{ post.title }}</h1>
 
 		{% for post in posts %}
 			{{ post.content }}
