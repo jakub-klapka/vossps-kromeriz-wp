@@ -3,6 +3,21 @@
     "title": "Obecn\u00e9 nastaven\u00ed",
     "fields": [
         {
+            "key": "field_54be64184566e",
+            "label": "Hlavi\u010dka str\u00e1nek",
+            "name": "",
+            "prefix": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
             "key": "field_54b638e8aa43d",
             "label": "Adresa \u0161koly",
             "name": "school_address",
@@ -64,6 +79,40 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_54be64254566f",
+            "label": "Obecn\u011b o \u0161kole",
+            "name": "",
+            "prefix": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_54be642d45670",
+            "label": "Obecn\u011b o \u0161kole",
+            "name": "about_school",
+            "prefix": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
         }
     ],
     "location": [
@@ -81,5 +130,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1421229332
+    "modified": 1421763651
 }

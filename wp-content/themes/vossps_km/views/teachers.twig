@@ -1,0 +1,28 @@
+{% if teachers %}
+	<section class="kontakty" id="kontakty_na_zamestnance">
+		<div class="kontakty__inner">
+			<h2 class="kontakty__heading">Kontakty na učitele</h2>
+
+			<table class="kontakty__table">
+				<thead>
+					<tr>
+						<th>Jméno a Příjmení</th>
+						<th>Telefon</th>
+						<th>E-mail</th>
+						<th>Třída</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for teacher in teachers %}
+						<tr itemscope itemtype="https://schema.org/Person">
+							<td itemprop="name">{{ teacher.name ?: '&nbsp;' }}</td>
+							<td itemprop="telephone">{{ teacher.phone ?: '&nbsp;' }}</td>
+							<td>{{ teacher.email|lumi_email ?: '&nbsp;' }}</td>
+							<td>{{ teacher.class ?: '&nbsp;' }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+{% endif %}

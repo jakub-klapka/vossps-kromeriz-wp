@@ -33,19 +33,25 @@ class SidebarMenuAPI {
 		$post = new TimberPost();
 		$wp_post = get_post();
 
-		//Add current page as parent to query all it's children
 		$parents = array( 0 ); //Also always query top level items
-		if( $post->post_type === 'studium' ) {
-			$parents[] = $post->ID;
+
+		if( get_post_type() === 'studium' ) {
+
+			//Add current page as parent to query all it's children
+			if( $post->post_type === 'studium' ) {
+				$parents[] = $post->ID;
+			}
+
+			//Include all current ancestors
+			$include_also = array();
+			$current_post_parent = $post->parent();
+			while( $current_post_parent != false ) {
+				$include_also[] = $current_post_parent->ID;
+				$current_post_parent = $current_post_parent->parent();
+			};
+
 		}
 
-		//Include all current ancestors
-		$include_also = array();
-		$current_post_parent = $post->parent();
-		while( $current_post_parent != false ) {
-			$include_also[] = $current_post_parent->ID;
-			$current_post_parent = $current_post_parent->parent();
-		};
 
 		//Query
 		$root_and_children = new WP_Query( array(
@@ -140,7 +146,11 @@ class SidebarMenuAPI {
 
 			//create children array
 			$children = array();
-			$is_active = true; //helper
+
+			//if current page is top-level menu page, rest won't be active, otherwise it could
+			$current_page = get_post();
+			$is_active = $page->ID === $current_page->ID ? false : true;
+
 			$this->generate_children_array( $page, $children, $is_active );
 
 			//construct toplevel item
@@ -166,7 +176,7 @@ class SidebarMenuAPI {
 				'is_active' => $is_active
 			);
 
-			//Once we hit current post in menu, all folowing are not active for sure
+			//Once we hit current post in menu, all following are not active for sure
 			$current_post = get_post();
 			if( $child->ID === $current_post->ID ){
 				$is_active = false;

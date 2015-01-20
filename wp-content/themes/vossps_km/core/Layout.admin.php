@@ -14,6 +14,11 @@ class Layout {
 				'page_title' => 'Obecné nastavení'
 			) );
 
+			acf_add_options_page( array(
+				'page_title' => 'Kontakty na učitele'
+			) );
+
+
 		}
 	
 	}

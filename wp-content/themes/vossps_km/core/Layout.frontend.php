@@ -28,6 +28,12 @@ class Layout {
 
 		add_filter( 'timber_context', array( $this, 'add_sidebar_menu' ) );
 
+		add_filter( 'timber_context', array( $this, 'add_teachers' ) );
+
+		add_action( 'timber_context', array( $this, 'add_about_school' ) );
+
+		add_action( 'timber_context', array( $this, 'add_admin_url' ) );
+
 	}
 
 	public function enqueue_scripts() {
@@ -109,7 +115,20 @@ class Layout {
 		return $data;
 	}
 
+	public function add_teachers( $data ) {
+		$data['teachers'] = get_field( 'teachers', 'option' );
 
+		return $data;
+	}
 
+	public function add_about_school( $context ) {
+		$context['about_school'] = get_field( 'about_school', 'option' );
+		return $context;
+	}
+
+	public function add_admin_url( $context ) {
+		$context['admin_url'] = admin_url();
+		return $context;
+	}
 
 }
