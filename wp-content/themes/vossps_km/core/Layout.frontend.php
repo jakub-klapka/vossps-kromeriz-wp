@@ -16,6 +16,9 @@ class Layout {
 	private $ss_id = 22;
 	private $vos_id = 24;
 	private $dv_id = 26;
+	private $tax_vos_id = 4;
+	private $tax_ss_id = 3;
+	private $tax_dv_id = 5;
 
 
 	public function __construct() {
@@ -164,6 +167,34 @@ class Layout {
 					break;
 				default:
 					$page_theme = 'ss';
+			}
+		}
+
+		if( is_singular( 'aktuality' ) ) {
+			$post = new TimberPost();
+			$terms = wp_get_post_terms(
+				$post->ID,
+				'typ_studia',
+				array(
+					'orderby' => 'ID',
+					'order' => 'ASC'
+				)
+			);
+
+			$page_theme = 'ss'; //default
+
+			if( is_array( $terms ) ){
+				$term_that_matter = reset( $terms );
+				switch( $term_that_matter->term_id ) {
+					case( $this->tax_ss_id ):
+						$page_theme = 'ss';
+						break;
+					case( $this->tax_vos_id ):
+						$page_theme = 'vos';
+						break;
+					case( $this->tax_dv_id ):
+						$page_theme = 'dv';
+				}
 			}
 		}
 

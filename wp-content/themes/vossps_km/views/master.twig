@@ -42,7 +42,10 @@
 			</ul>
 		</nav>
 
-		<h1><span class="heading_icon" aria-hidden="true"><svg><use xlink:href="#icon-presentation"></use></svg></span>{{ post.title }}</h1>
+		{% set icon = ( page_theme == 'ss' ) ? 'books' %}
+		{% set icon = ( page_theme == 'vos' ) ? 'graduation' : icon %}
+		{% set icon = ( page_theme == 'dv' ) ? 'presentation' : icon %}
+		<h1>{% if icon %}<span class="heading_icon" aria-hidden="true"><svg><use xlink:href="#icon-{{ icon }}"></use></svg></span>{% endif %}{{ post.title }}</h1>
 
 		{% for post in posts %}
 			{{ post.content }}

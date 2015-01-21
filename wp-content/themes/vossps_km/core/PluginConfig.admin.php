@@ -28,6 +28,14 @@ class PluginConfig {
 			remove_action( 'admin_notices', 'update_nag', 3 );
 		});
 
+		/**
+		 * WP SEO metabox lower prio
+		 */
+		add_filter( 'wpseo_metabox_prio', function() {return 'low';} );
+
+		add_filter( 'wpseo_metabox_prio', function() {return 'low';} );
+
+
 
 	}
 
