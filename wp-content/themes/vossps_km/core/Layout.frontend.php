@@ -4,24 +4,32 @@
 namespace Lumi\Frontend;
 
 
+use Lumi\Classes\AktualityTheme;
+use Lumi\Classes\Breadcrumbs;
 use Lumi\Classes\SidebarMenu;
 use TimberPost;
 
 
 class Layout {
 
-	private $static_ver = 1;
-	private $dokumenty_id = 12;
-	private $fotogalerie_id = 15;
-	private $ss_id = 22;
-	private $vos_id = 24;
-	private $dv_id = 26;
-	private $tax_vos_id = 4;
-	private $tax_ss_id = 3;
-	private $tax_dv_id = 5;
+	private $static_ver;
+	private $dokumenty_id;
+	private $fotogalerie_id;
+	private $ss_id;
+	private $vos_id;
+	private $dv_id;
 
 
 	public function __construct() {
+
+		global $lumi;
+		$this->static_ver = $lumi['config']['static_ver'];
+		$this->dokumenty_id = $lumi['config']['dokumenty_id'];
+		$this->fotogalerie_id = $lumi['config']['fotogalerie_id'];
+		$this->ss_id = $lumi['config']['ss_id'];
+		$this->vos_id = $lumi['config']['vos_id'];
+		$this->dv_id = $lumi['config']['dv_id'];
+
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
@@ -34,11 +42,13 @@ class Layout {
 
 		add_filter( 'timber_context', array( $this, 'add_teachers' ) );
 
-		add_action( 'timber_context', array( $this, 'add_about_school' ) );
+		add_filter( 'timber_context', array( $this, 'add_about_school' ) );
 
-		add_action( 'timber_context', array( $this, 'add_admin_url' ) );
+		add_filter( 'timber_context', array( $this, 'add_admin_url' ) );
 
-		add_action( 'timber_context', array( $this, 'add_page_theme' ) );
+		add_filter( 'timber_context', array( $this, 'add_page_theme' ) );
+
+		add_filter( 'timber_context', array( $this, 'breadcrumbs_items' ) );
 
 	}
 
@@ -171,35 +181,17 @@ class Layout {
 		}
 
 		if( is_singular( 'aktuality' ) ) {
-			$post = new TimberPost();
-			$terms = wp_get_post_terms(
-				$post->ID,
-				'typ_studia',
-				array(
-					'orderby' => 'ID',
-					'order' => 'ASC'
-				)
-			);
-
-			$page_theme = 'ss'; //default
-
-			if( is_array( $terms ) ){
-				$term_that_matter = reset( $terms );
-				switch( $term_that_matter->term_id ) {
-					case( $this->tax_ss_id ):
-						$page_theme = 'ss';
-						break;
-					case( $this->tax_vos_id ):
-						$page_theme = 'vos';
-						break;
-					case( $this->tax_dv_id ):
-						$page_theme = 'dv';
-				}
-			}
+			$page_theme = AktualityTheme::getTheme();
 		}
 
 		$context['page_theme'] = $page_theme;
 		return $context;
+	}
+
+	public function breadcrumbs_items( $data ) {
+		$breadcrumbs = new Breadcrumbs();
+		$data['breadcrumbs'] = $breadcrumbs->get_breadcrumbs();
+		return $data;
 	}
 
 }

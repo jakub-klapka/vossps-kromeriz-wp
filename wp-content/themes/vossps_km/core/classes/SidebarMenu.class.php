@@ -7,6 +7,9 @@ namespace Lumi\Classes;
 
 class SidebarMenu {
 
+	/**
+	 * @return SidebarMenuAPI
+	 */
 	public static function getMenu(){
 
 		global $lumi_sidebar_menu;

@@ -30,19 +30,26 @@
 	{% include 'main_sidebar.twig' %}
 
 	{% set main_content_class = ( page_theme == 'ss' ) ? 'is-stredoskolske' %}
+	{% set main_content_class = ( page_theme == 'none' ) ? 'is-stredoskolske' : main_content_class %}
 	{% set main_content_class = ( page_theme == 'vos' ) ? 'is-vyssi_odborne' : main_content_class %}
 	{% set main_content_class = ( page_theme == 'dv' ) ? 'is-dalsi_vzdelavani' : main_content_class %}
 
 	<article class="main_content content_typo{% if main_content_class %} {{ main_content_class }}{% endif %}" role="main" itemprop="mainContentOfPage">
 
-		<nav class="main_content__breadcrumbs" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			<ul class="main_content__breadcrumbs__menu">
-				<li class="main_content__breadcrumbs__menu__item"><a href="" itemprop="url name">Hlavní strana</a></li>
-				<li class="main_content__breadcrumbs__menu__item"><a href="" itemprop="url name">Další vzdělání</a></li>
-			</ul>
-		</nav>
+		{% if breadcrumbs %}
+			<nav class="main_content__breadcrumbs" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+				<ul class="main_content__breadcrumbs__menu">
+					{% for item in breadcrumbs %}
+						<li class="main_content__breadcrumbs__menu__item">
+							<a href="{{ item.url }}" itemprop="url name">{{ item.name }}</a>
+						</li>{% if loop.last != true %}&nbsp;{% endif %}
+					{% endfor %}
+				</ul>
+			</nav>
+		{% endif %}
 
 		{% set icon = ( page_theme == 'ss' ) ? 'books' %}
+		{% set icon = ( page_theme == 'none' ) ? 'books' : icon %}
 		{% set icon = ( page_theme == 'vos' ) ? 'graduation' : icon %}
 		{% set icon = ( page_theme == 'dv' ) ? 'presentation' : icon %}
 		<h1>{% if icon %}<span class="heading_icon" aria-hidden="true"><svg><use xlink:href="#icon-{{ icon }}"></use></svg></span>{% endif %}{{ post.title }}</h1>

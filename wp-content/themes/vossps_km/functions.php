@@ -6,6 +6,27 @@ define( 'LUMI_TEXTDOMAIN', 'vossps_km' );
 
 
 /**
+ * Var containing references to all theme objects
+ * @var array $lumi array with all classes used in template, by namespace
+ *      $lumi['Glob'|'Admin'|'Frontend'][class_name]
+ */
+$lumi = array();
+global $lumi;
+
+$lumi['config'] = array(
+	'static_ver' => 1,
+	'dokumenty_id' => 12,
+	'fotogalerie_id' => 15,
+	'ss_id' => 22,
+	'vos_id' => 24,
+	'dv_id' => 26,
+	'tax_vos_id' => 4,
+	'tax_ss_id' => 3,
+	'tax_dv_id' => 5
+);
+
+
+/**
  * Classes autoloading
  * All classes are located in core/classes as class_name.class.php
  * All classes are using namespace Lumi/Classes
@@ -19,14 +40,6 @@ spl_autoload_register( function ( $class ) {
 	require_once( LUMI_CORE_PATH . 'classes/' . $class_name . '.class.php' );
 } );
 
-
-/**
- * Var containing references to all theme objects
- * @var array $lumi array with all classes used in template, by namespace
- *      $lumi['Glob'|'Admin'|'Frontend'][class_name]
- */
-$lumi = array();
-global $lumi;
 
 
 /**
