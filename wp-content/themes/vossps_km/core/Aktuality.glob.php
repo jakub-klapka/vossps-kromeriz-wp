@@ -33,7 +33,7 @@ class Aktuality {
 		register_post_type( 'aktuality', array(
 			'labels' => $labels,
 			'public' => true,
-			'supports' => array( 'title', 'editor', 'excerpt', 'revisions' ),
+			'supports' => array( 'title', 'editor', 'revisions' ),
 			'has_archive' => true,
 			'taxonomies' => array( 'typ_studia' ),
 			'rewrite' => array(
@@ -65,6 +65,10 @@ class Aktuality {
 				'edit_terms' => 'manage_options',
 				'delete_terms' => 'manage_options',
 				'assign_terms' => 'edit_posts'
+			),
+			'rewrite' => array(
+				'slug' => '/',
+				'with_front' => false
 			)
 		) );
 

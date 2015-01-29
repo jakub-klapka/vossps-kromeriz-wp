@@ -1,0 +1,59 @@
+{
+    "key": "group_54ca6ca7c953a",
+    "title": "Aktuality",
+    "fields": [
+        {
+            "key": "field_54ca6cb3dd83e",
+            "label": "Obr\u00e1zek aktuality",
+            "name": "aktualita_image",
+            "prefix": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all"
+        },
+        {
+            "key": "field_54ca6cf1dd83f",
+            "label": "Stru\u010dn\u00fd v\u00fdpis aktuality",
+            "name": "aktualita_excerpt",
+            "prefix": "",
+            "type": "wysiwyg",
+            "instructions": "Tento text se zobraz\u00ed ve v\u00fdpisu aktualit. Pokud ho nech\u00e1te pr\u00e1zdn\u00fd, bude zobrazeno prvn\u00edch n\u011bkolik v\u011bt z obsahu aktuality n\u00ed\u017ee.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "aktuality"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "modified": 1422552497
+}

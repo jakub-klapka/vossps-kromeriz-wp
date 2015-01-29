@@ -37,6 +37,7 @@ class Studium {
 			'hierarchical' => true,
 			'supports' => array( 'title', 'editor', 'revisions', 'page-attributes' ),
 			'rewrite' => array(
+				'slug' => '/',
 				'with_front' => false,
 				'feeds' => false,
 				'pages' => false

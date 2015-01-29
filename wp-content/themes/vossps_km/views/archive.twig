@@ -1,0 +1,82 @@
+{% extends 'master.twig' %}
+{% set main_content_tag = 'section' %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block main_content %}
+
+	<div class="main_content__news">
+
+		{% for post in posts %}
+
+			<article class="main_content__news__item" itemscope itemtype="http://schema.org/NewsArticle">
+
+				{% if post.thumbnail %}
+					<a href="{{ post.permalink }}" class="main_content__news__item__image" itemprop="url">
+						<img src="{{ post.thumbnail.src|resize( 210, 0, false ) }}" alt="{{ post.thumbnail.alt }}" itemprop="image"/>
+					</a>
+				{% endif %}
+				<div class="main_content__news__item__description" itemprop="description">
+					<h2 itemprop="name">{{ post.title }}</h2>
+
+					{{ post.aktualita_excerpt ?: post.get_preview( 100, null, '' ) }}
+				</div>
+
+				<a class="main_content__news__item__more_link" href="{{ post.permalink }}" itemprop="url">Zobrazit více</a>
+
+			</article>
+
+		{% endfor %}
+
+		{#<article class="main_content__news__item">#}
+			{#<div class="main_content__news__item__description">#}
+				{#<h2>Lorem ipsum dolor sit.</h2>#}
+
+				{#<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum et hic inventore molestiae#}
+					{#quaerat quam rerum sed suscipit ullam. Cupiditate doloribus excepturi explicabo id repellat.#}
+					{#Alias amet aperiam, asperiores, autem cumque distinctio dolores, ducimus eligendi explicabo fuga#}
+					{#illum impedit ipsum minus perferendis quasi quibusdam repellat saepe sapiente voluptas#}
+					{#voluptate! Alias, at autem debitis dolores eos eveniet ipsum laborum nobis similique voluptatem!#}
+					{#Cumque dolorem dolorum fugit inventore mollitia, repudiandae rerum unde velit. Cum dignissimos#}
+					{#ipsam ipsum nisi, praesentium quam quis tenetur ut vitae voluptates. Accusamus, aperiam#}
+					{#dignissimos dolorem dolores enim incidunt inventore molestiae neque obcaecati placeat qui,#}
+					{#quibusdam sequi veritatis voluptate.</p>#}
+			{#</div>#}
+
+			{#<a class="main_content__news__item__more_link" href="">Zobrazit více</a>#}
+
+		{#</article>#}
+
+		{#<article class="main_content__news__item">#}
+			{#<a href="" class="main_content__news__item__image"><img src="//placehold.it/210x150" alt=""/></a>#}
+			{#<div class="main_content__news__item__description">#}
+				{#<h2>Lorem ipsum dolor sit.</h2>#}
+
+				{#<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum et hic inventore molestiae#}
+					{#quaerat quam rerum sed suscipit uore molestiae neque obcaecati placeat qui,#}
+					{#quibusdam sequi veritatis voluptate.</p>#}
+			{#</div>#}
+
+			{#<a class="main_content__news__item__more_link" href="">Zobrazit více</a>#}
+
+		{#</article>#}
+
+		<nav class="main_content__news__pagination" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+			<ul class="main_content__news__pagination__ul">
+				<li class="main_content__news__pagination__ul__item"><a href="" aria-label="Předchozí" itemprop="name url">&lsaquo;</a></li>
+				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">1</a></li>
+				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">2</a></li>
+				<li class="main_content__news__pagination__ul__item is-dots" aria-hidden="true"></li>
+				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">10</a></li>
+				<li class="main_content__news__pagination__ul__item is-active">11</li>
+				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">12</a></li>
+				<li class="main_content__news__pagination__ul__item is-dots" aria-hidden="true"></li>
+				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">21</a></li>
+				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">22</a></li>
+				<li class="main_content__news__pagination__ul__item"><a href="" aria-label="Následující" itemprop="name url">&rsaquo;</a></li>
+			</ul>
+		</nav>
+
+	</div>
+
+{% endblock %}

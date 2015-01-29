@@ -184,6 +184,28 @@ class Layout {
 			$page_theme = AktualityTheme::getTheme();
 		}
 
+		if( is_tax( 'typ_studia' ) ){
+
+			global $lumi;
+			$current_term = get_queried_object();
+			$id = $current_term->term_id;
+
+			switch( $id ) {
+				case( $lumi['config']['tax_vos_id'] ):
+					$page_theme = 'vos';
+					break;
+				case( $lumi['config']['tax_ss_id'] ):
+					$page_theme = 'ss';
+					break;
+				case( $lumi['config']['tax_dv_id'] ):
+					$page_theme = 'dv';
+					break;
+				default:
+					$page_theme = 'none';
+			};
+
+		}
+
 		$context['page_theme'] = $page_theme;
 		return $context;
 	}

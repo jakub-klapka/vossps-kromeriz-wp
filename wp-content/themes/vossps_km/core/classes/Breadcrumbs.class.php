@@ -32,6 +32,10 @@ class Breadcrumbs {
 			$this->set_aktuality_bc();
 		}
 
+		if( is_tax( 'typ_studia' ) ) {
+			$this->set_typ_studia_bc();
+		}
+
 
 	}
 
@@ -95,6 +99,19 @@ class Breadcrumbs {
 			'url' => $post->permalink()
 		);
 
+
+	}
+
+	private function set_typ_studia_bc() {
+
+		$current_term = get_queried_object();
+		$name = $current_term->name;
+		$id = $current_term->term_id;
+
+		$this->breadcrumbs[] = array(
+			'name' => $name,
+			'url' => get_term_link( $current_term )
+		);
 
 	}
 

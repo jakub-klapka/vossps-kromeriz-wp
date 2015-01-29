@@ -21,20 +21,20 @@
 <body>
 <div id="svg_sprite_wrap" style="display: none;"></div>
 
-{% include 'header.twig' %}
+{% include '_header.twig' %}
 
-{% include 'quick_links.twig' %}
+{% include '_quick_links.twig' %}
 
 <div class="main_content_wrap">
 
-	{% include 'main_sidebar.twig' %}
+	{% include '_main_sidebar.twig' %}
 
 	{% set main_content_class = ( page_theme == 'ss' ) ? 'is-stredoskolske' %}
 	{% set main_content_class = ( page_theme == 'none' ) ? 'is-stredoskolske' : main_content_class %}
 	{% set main_content_class = ( page_theme == 'vos' ) ? 'is-vyssi_odborne' : main_content_class %}
 	{% set main_content_class = ( page_theme == 'dv' ) ? 'is-dalsi_vzdelavani' : main_content_class %}
 
-	<article class="main_content content_typo{% if main_content_class %} {{ main_content_class }}{% endif %}" role="main" itemprop="mainContentOfPage">
+	<{{ main_content_tag ?: 'article' }} class="main_content content_typo{% if main_content_class %} {{ main_content_class }}{% endif %}" role="main" itemprop="mainContentOfPage">
 
 		{% if breadcrumbs %}
 			<nav class="main_content__breadcrumbs" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
@@ -48,18 +48,23 @@
 			</nav>
 		{% endif %}
 
+
 		{% set icon = ( page_theme == 'ss' ) ? 'books' %}
 		{% set icon = ( page_theme == 'none' ) ? 'books' : icon %}
 		{% set icon = ( page_theme == 'vos' ) ? 'graduation' : icon %}
 		{% set icon = ( page_theme == 'dv' ) ? 'presentation' : icon %}
-		<h1>{% if icon %}<span class="heading_icon" aria-hidden="true"><svg><use xlink:href="#icon-{{ icon }}"></use></svg></span>{% endif %}{{ post.title }}</h1>
+		<h1>{% if icon %}<span class="heading_icon" aria-hidden="true"><svg><use xlink:href="#icon-{{ icon }}"></use></svg></span>{% endif %}{% block page_title %}{{ post.title }}{% endblock %}</h1>
 
-		{% for post in posts %}
-			{{ post.content }}
-		{% endfor %}
+		{% block main_content %}
+
+			{% for post in posts %}
+				{{ post.content }}
+			{% endfor %}
+
+		{% endblock %}
 
 
-	</article>
+	</{{ main_content_tag ?: 'article' }}>
 
 </div>
 
@@ -79,9 +84,9 @@
 
 </section>
 
-{% include 'teachers.twig' %}
+{% include '_teachers.twig' %}
 
-{% include 'about_school.twig' %}
+{% include '_about_school.twig' %}
 
 
 <footer class="main_footer" role="contentinfo">
