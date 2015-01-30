@@ -28,54 +28,31 @@
 
 		{% endfor %}
 
-		{#<article class="main_content__news__item">#}
-			{#<div class="main_content__news__item__description">#}
-				{#<h2>Lorem ipsum dolor sit.</h2>#}
-
-				{#<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum et hic inventore molestiae#}
-					{#quaerat quam rerum sed suscipit ullam. Cupiditate doloribus excepturi explicabo id repellat.#}
-					{#Alias amet aperiam, asperiores, autem cumque distinctio dolores, ducimus eligendi explicabo fuga#}
-					{#illum impedit ipsum minus perferendis quasi quibusdam repellat saepe sapiente voluptas#}
-					{#voluptate! Alias, at autem debitis dolores eos eveniet ipsum laborum nobis similique voluptatem!#}
-					{#Cumque dolorem dolorum fugit inventore mollitia, repudiandae rerum unde velit. Cum dignissimos#}
-					{#ipsam ipsum nisi, praesentium quam quis tenetur ut vitae voluptates. Accusamus, aperiam#}
-					{#dignissimos dolorem dolores enim incidunt inventore molestiae neque obcaecati placeat qui,#}
-					{#quibusdam sequi veritatis voluptate.</p>#}
-			{#</div>#}
-
-			{#<a class="main_content__news__item__more_link" href="">Zobrazit více</a>#}
-
-		{#</article>#}
-
-		{#<article class="main_content__news__item">#}
-			{#<a href="" class="main_content__news__item__image"><img src="//placehold.it/210x150" alt=""/></a>#}
-			{#<div class="main_content__news__item__description">#}
-				{#<h2>Lorem ipsum dolor sit.</h2>#}
-
-				{#<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum et hic inventore molestiae#}
-					{#quaerat quam rerum sed suscipit uore molestiae neque obcaecati placeat qui,#}
-					{#quibusdam sequi veritatis voluptate.</p>#}
-			{#</div>#}
-
-			{#<a class="main_content__news__item__more_link" href="">Zobrazit více</a>#}
-
-		{#</article>#}
-
-		<nav class="main_content__news__pagination" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			<ul class="main_content__news__pagination__ul">
-				<li class="main_content__news__pagination__ul__item"><a href="" aria-label="Předchozí" itemprop="name url">&lsaquo;</a></li>
-				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">1</a></li>
-				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">2</a></li>
-				<li class="main_content__news__pagination__ul__item is-dots" aria-hidden="true"></li>
-				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">10</a></li>
-				<li class="main_content__news__pagination__ul__item is-active">11</li>
-				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">12</a></li>
-				<li class="main_content__news__pagination__ul__item is-dots" aria-hidden="true"></li>
-				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">21</a></li>
-				<li class="main_content__news__pagination__ul__item"><a href="" itemprop="name url">22</a></li>
-				<li class="main_content__news__pagination__ul__item"><a href="" aria-label="Následující" itemprop="name url">&rsaquo;</a></li>
-			</ul>
-		</nav>
+		{% if pagination %}
+			<nav class="main_content__news__pagination" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+				<ul class="main_content__news__pagination__ul">
+					{% for item in pagination %}
+						{% if item.is_previous %}
+							<li class="main_content__news__pagination__ul__item">
+								<a href="{{ item.url }}" aria-label="Předchozí" itemprop="name url">&lsaquo;</a>
+							</li>
+						{% elseif item.is_next %}
+							<li class="main_content__news__pagination__ul__item">
+								<a href="{{ item.url }}" aria-label="Následující" itemprop="name url">&rsaquo;</a>
+							</li>
+						{% elseif item.is_dots %}
+							<li class="main_content__news__pagination__ul__item is-dots" aria-hidden="true"></li>
+						{% elseif item.is_current %}
+							<li class="main_content__news__pagination__ul__item is-active">{{ item.title }}</li>
+						{% else %}
+							<li class="main_content__news__pagination__ul__item">
+								<a href="{{ item.url }}" itemprop="name url">{{ item.title }}</a>
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</nav>
+		{% endif %}
 
 	</div>
 

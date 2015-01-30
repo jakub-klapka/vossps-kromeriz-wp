@@ -9,6 +9,7 @@ use WP_Query;
 class SidebarMenuAPI {
 
 	private $menu;
+	private $page_id = false;
 
 	public function __construct() {
 
@@ -30,8 +31,28 @@ class SidebarMenuAPI {
 	}
 
 	private function query_required_pages() {
-		$post = new TimberPost();
-		$wp_post = get_post();
+
+		if( is_tax( 'typ_studia' ) ) {
+			$queried_object = get_queried_object();
+			$term_id = $queried_object->term_id;
+
+			global $lumi;
+			switch( $term_id ){
+				case( $lumi['config']['tax_ss_id'] ):
+					$page_id = $lumi['config']['ss_id'];
+					break;
+				case( $lumi['config']['tax_vos_id'] ):
+					$page_id = $lumi['config']['vos_id'];
+					break;
+				case( $lumi['config']['tax_dv_id'] ):
+					$page_id = $lumi['config']['dv_id'];
+			}
+		}
+
+		if( isset( $page_id ) ) $this->page_id = $page_id;
+
+		$post = ( isset( $page_id ) ) ? new TimberPost( $page_id ) : new TimberPost() ;
+		$wp_post = ( isset( $page_id ) ) ? get_post( $page_id ) : get_post() ;
 		$output = array();
 
 		$parents = array( 0 ); //Also always query top level items
@@ -145,8 +166,17 @@ class SidebarMenuAPI {
 			$children = array();
 
 			//if current page is top-level menu page, rest won't be active, otherwise it could
-			$current_page = get_post();
-			$is_active = $page->ID === $current_page->ID ? false : true;
+			if( $this->page_id ){
+				$current_page = get_post( $this->page_id );
+			} else {
+				$current_page = get_post();
+			}
+
+			if( $current_page ) {
+				$is_active = $page->ID === $current_page->ID ? false : true;
+			} else {
+				$is_active = false;
+			}
 
 			$this->generate_children_array( $page, $children, $is_active );
 

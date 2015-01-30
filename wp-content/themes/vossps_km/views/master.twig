@@ -1,4 +1,5 @@
-{% spaceless %}<!doctype html>
+{#{% spaceless %}#}
+<!doctype html>
 <html {{ fn( 'language_attributes' ) }} itemscope itemtype="http://schema.org/WebPage">
 <head>
 	<meta charset="UTF-8">
@@ -36,17 +37,20 @@
 
 	<{{ main_content_tag ?: 'article' }} class="main_content content_typo{% if main_content_class %} {{ main_content_class }}{% endif %}" role="main" itemprop="mainContentOfPage">
 
-		{% if breadcrumbs %}
-			<nav class="main_content__breadcrumbs" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-				<ul class="main_content__breadcrumbs__menu">
-					{% for item in breadcrumbs %}
-						<li class="main_content__breadcrumbs__menu__item">
-							<a href="{{ item.url }}" itemprop="url name">{{ item.name }}</a>
-						</li>{% if loop.last != true %}&nbsp;{% endif %}
-					{% endfor %}
-				</ul>
-			</nav>
-		{% endif %}
+		{% block breadcrumbs %}
+			{% if breadcrumbs %}
+				<nav class="main_content__breadcrumbs" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+					<ul class="main_content__breadcrumbs__menu">
+						{% for item in breadcrumbs %}
+							<li class="main_content__breadcrumbs__menu__item">
+								<a href="{{ item.url }}" itemprop="url name">{{ item.name }}</a>
+							</li>
+							{#{% if loop.last != true %}&nbsp;{% endif %}#}
+						{% endfor %}
+					</ul>
+				</nav>
+			{% endif %}
+		{% endblock %}
 
 
 		{% set icon = ( page_theme == 'ss' ) ? 'books' %}
@@ -114,4 +118,5 @@
 {{ wp_footer }}
 
 </body>
-</html>{% endspaceless %}
+</html>
+{#{% endspaceless %}#}
