@@ -67,6 +67,9 @@
 
 		{% endblock %}
 
+		{% if gallery %}
+			{% include '_gallery.twig' %}
+		{% endif %}
 
 	</{{ main_content_tag ?: 'article' }}>
 

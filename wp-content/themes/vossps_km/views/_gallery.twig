@@ -1,0 +1,7 @@
+<section class="ped_gallery">
+	{% for item in gallery %}
+		<a class="ped_gallery__item" rel="gallery" href="{{ item.src }}">
+			<img src="{{ item.src|resize( 220, 150 ) }}" alt="{{ item.alt }}" title="{{ item.caption }}"/>
+		</a>
+	{% endfor %}
+</section>

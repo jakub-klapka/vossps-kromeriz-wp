@@ -7,6 +7,7 @@ namespace Lumi\Frontend;
 use Lumi\Classes\AktualityTheme;
 use Lumi\Classes\Breadcrumbs;
 use Lumi\Classes\SidebarMenu;
+use TimberImage;
 use TimberPost;
 
 
@@ -50,6 +51,8 @@ class Layout {
 
 		add_filter( 'timber_context', array( $this, 'breadcrumbs_items' ) );
 
+		add_filter( 'timber_context', array( $this, 'ped_gallery' ) );
+
 	}
 
 	public function enqueue_scripts() {
@@ -58,6 +61,8 @@ class Layout {
 		 * Styles
 		 */
 		wp_enqueue_style( 'layout', get_template_directory_uri() . '/assets/css/layout.css', array(), $this->static_ver );
+
+		wp_register_style( 'ped_gallery', get_template_directory_uri() . '/assets/css/ped_gallery.css', array(), $this->static_ver );
 
 		/*
 		 * Libs
@@ -80,6 +85,10 @@ class Layout {
 		 */
 		wp_register_script( 'owl_carousel_lib', get_template_directory_uri() . '/assets/js/libs/owl.carousel.js', array( 'jquery' ), $this->static_ver, true );
 		wp_register_script( 'owl_carousel', get_template_directory_uri() . '/assets/js/owl_carousel.js', array( 'jquery', 'owl_carousel_lib' ), $this->static_ver, true );
+
+		wp_register_script( 'fancybox', get_template_directory_uri() . '/assets/js/libs/jquery.fancybox.js', array( 'jquery' ), $this->static_ver, true );
+		wp_register_script( 'ped_gallery', get_template_directory_uri() . '/assets/js/gallery.js', array( 'jquery', 'fancybox' ), $this->static_ver, true );
+
 
 
 	}
@@ -214,6 +223,29 @@ class Layout {
 		$breadcrumbs = new Breadcrumbs();
 		$data['breadcrumbs'] = $breadcrumbs->get_breadcrumbs();
 		return $data;
+	}
+
+	public function ped_gallery( $data ){
+		if( !get_field( 'use_gallery' ) ) return $data;
+		if( !is_singular( array( 'page', 'studium', 'aktuality' ) ) ) return $data;
+
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_ped_gallery' ) );
+
+		$gallery = get_field( 'gallery' );
+		$images = array();
+		foreach( $gallery as $item ) {
+			$images[] = new TimberImage( $item['ID'] );
+		}
+		$data['gallery'] = $images;
+
+		return $data;
+	}
+
+	public function enqueue_ped_gallery() {
+		wp_enqueue_style( 'ped_gallery' );
+		wp_enqueue_script( 'ped_gallery' );
+
 	}
 
 }
