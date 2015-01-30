@@ -49,8 +49,16 @@ class Archive {
 
 		$format = user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' );
 
+		if( is_tax() ) {
+			$current_tax = get_queried_object();
+			$base = get_term_link( $current_tax );
+		} else {
+			$base =  trailingslashit( get_post_type_archive_link( 'aktuality' ) );
+		}
+
+
 		$args = array(
-			'base' => trailingslashit( get_post_type_archive_link( 'aktuality' ) ) . '%_%', // http://example.com/all_posts.php%_% : %_% is replaced by format (below)
+			'base' => $base . '%_%', // http://example.com/all_posts.php%_% : %_% is replaced by format (below)
 			'format' => $format, // ?page=%#% : %#% is replaced by the page number
 			'total' => $total,
 			'current' => $current,

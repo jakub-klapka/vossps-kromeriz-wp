@@ -67,7 +67,7 @@ class Aktuality {
 				'assign_terms' => 'edit_posts'
 			),
 			'rewrite' => array(
-				'slug' => '/',
+				'slug' => 'studium',
 				'with_front' => false
 			)
 		) );

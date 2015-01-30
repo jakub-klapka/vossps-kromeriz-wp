@@ -15,8 +15,8 @@ global $lumi;
 
 $lumi['config'] = array(
 	'static_ver' => 1,
-	'dokumenty_id' => 12,
-	'fotogalerie_id' => 15,
+	'dokumenty_id' => 98,
+	'fotogalerie_id' => 100,
 	'ss_id' => 22,
 	'vos_id' => 24,
 	'dv_id' => 26,
