@@ -45,7 +45,7 @@ class HomePage {
 		}
 
 		$data['slider'] = $slider;
-
+		$data['slider_timeout'] = ( get_field( 'home_slider_timeout', 'option' ) ) ? ( get_field( 'home_slider_timeout', 'option' ) . '000' ) : '5000';
 
 		return $data;
 	}

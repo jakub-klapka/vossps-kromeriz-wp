@@ -2,7 +2,7 @@
 
 {% block slider %}
 	{% if slider %}
-		<section class="main_slider" id="main_slider">
+		<section class="main_slider" id="main_slider" data-timeout="{{ slider_timeout ?: 5000 }}">
 			{% for item in slider %}
 				<div class="main_slider__item">
 					<img alt="{{ item.image.alt }}"

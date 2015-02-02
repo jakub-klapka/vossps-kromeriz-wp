@@ -181,6 +181,30 @@
             ]
         },
         {
+            "key": "field_54cf56e97741f",
+            "label": "Prodleva ot\u00e1\u010den\u00ed slideru",
+            "name": "home_slider_timeout",
+            "prefix": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 5,
+            "placeholder": "",
+            "prepend": "",
+            "append": "sekund",
+            "min": 1,
+            "max": 99,
+            "step": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
             "key": "field_54be64254566f",
             "label": "Obecn\u011b o \u0161kole",
             "name": "",
@@ -231,5 +255,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1422871328
+    "modified": 1422874384
 }
