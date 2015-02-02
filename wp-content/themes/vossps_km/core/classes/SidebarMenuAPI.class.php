@@ -23,6 +23,8 @@ class SidebarMenuAPI {
 
 		$pages = $this->move_children_under_parents( $pages );
 
+		$pages = $this->change_menu_order_based_on_current_theme( $pages );
+
 		//sort children based on menu order
 		$sorted = $this->sort_pages_by_menu_order( $pages );
 
@@ -132,6 +134,22 @@ class SidebarMenuAPI {
 				};
 			};
 		};
+		return $pages;
+	}
+
+	private function change_menu_order_based_on_current_theme( $pages ) {
+		$theme = StudiumTheme::getTheme();
+		if( $theme === 'none' ) return $pages;
+
+		global $lumi;
+		$target_page_id = isset( $lumi['config'][ $theme . '_id' ] ) ? $lumi['config'][ $theme . '_id' ] : false;
+
+		if( $target_page_id === false ) return $pages;
+
+		if( isset( $pages[ $target_page_id ] ) ) {
+			$pages[ $target_page_id ]->menu_order = -1;
+		}
+
 		return $pages;
 	}
 
