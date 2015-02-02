@@ -1,5 +1,27 @@
 {% extends 'archive.twig' %}
 
+{% block slider %}
+	{% if slider %}
+		<section class="main_slider" id="main_slider">
+			{% for item in slider %}
+				<div class="main_slider__item">
+					<img alt="{{ item.image.alt }}"
+					     src="{{ item.image.src|resize( 1980, 340, 'center' ) }}"
+					     srcset="{{ item.image.src|resize( 1980, 340, 'center' ) }} 1980w,
+					        {{ item.image.src|resize( 1500, 340, 'center' ) }} 1500w,
+					        {{ item.image.src|resize( 1024, 340, 'center' ) }} 1024w,
+					        {{ item.image.src|resize( 960, 340, 'center' ) }} 960w"
+						 sizes="100vw" />
+					<div class="main_slider__item__text">
+						{% if item.heading %}<h2 class="main_slider__item__text__tagline">{{ item.heading }}</h2>{% endif %}
+						{% if item.desc %}<p>{{ item.desc }}</p>{% endif %}
+					</div>
+				</div>
+			{% endfor %}
+		</section>
+	{% endif %}
+{% endblock %}
+
 {% block page_title %}Aktuality{% endblock %}
 
 {% block breadcrumbs %}{% endblock %}

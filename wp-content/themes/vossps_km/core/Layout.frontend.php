@@ -83,8 +83,9 @@ class Layout {
 		/*
 		 * Specific scripts
 		 */
+		wp_register_script( 'picturefill', get_template_directory_uri() . '/assets/js/libs/picturefill.js', array(), $this->static_ver, true );
 		wp_register_script( 'owl_carousel_lib', get_template_directory_uri() . '/assets/js/libs/owl.carousel.js', array( 'jquery' ), $this->static_ver, true );
-		wp_register_script( 'owl_carousel', get_template_directory_uri() . '/assets/js/owl_carousel.js', array( 'jquery', 'owl_carousel_lib' ), $this->static_ver, true );
+		wp_register_script( 'owl_carousel', get_template_directory_uri() . '/assets/js/owl_carousel.js', array( 'jquery', 'owl_carousel_lib', 'picturefill' ), $this->static_ver, true );
 
 		wp_register_script( 'fancybox', get_template_directory_uri() . '/assets/js/libs/jquery.fancybox.js', array( 'jquery' ), $this->static_ver, true );
 		wp_register_script( 'ped_gallery', get_template_directory_uri() . '/assets/js/gallery.js', array( 'jquery', 'fancybox' ), $this->static_ver, true );

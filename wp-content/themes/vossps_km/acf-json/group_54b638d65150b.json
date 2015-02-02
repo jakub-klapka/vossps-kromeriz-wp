@@ -15,7 +15,8 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "placement": "top"
         },
         {
             "key": "field_54b638e8aa43d",
@@ -81,6 +82,105 @@
             "append": ""
         },
         {
+            "key": "field_54cf4aa3d6352",
+            "label": "Slider na hlavn\u00ed str\u00e1nce",
+            "name": "slider_na_hlavni_strance",
+            "prefix": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top"
+        },
+        {
+            "key": "field_54cf4ab6d6353",
+            "label": "Obr\u00e1zky slideru",
+            "name": "home_slider",
+            "prefix": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "layout": "table",
+            "button_label": "P\u0159idat obr\u00e1zek",
+            "sub_fields": [
+                {
+                    "key": "field_54cf4ad4d6354",
+                    "label": "Obr\u00e1zek",
+                    "name": "image",
+                    "prefix": "",
+                    "type": "image",
+                    "instructions": "Nahr\u00e1vejte obr\u00e1zky o \u0161\u00ed\u0159ce alespo\u0148 1980px. Obr\u00e1zky budou automaticky zmen\u0161eny na v\u00fd\u0161ku 340px.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "thumbnail",
+                    "library": "all"
+                },
+                {
+                    "key": "field_54cf4affd6355",
+                    "label": "Nadpis",
+                    "name": "heading",
+                    "prefix": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_54cf4b0cd6356",
+                    "label": "Popis",
+                    "name": "desc",
+                    "prefix": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "br",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+            ]
+        },
+        {
             "key": "field_54be64254566f",
             "label": "Obecn\u011b o \u0161kole",
             "name": "",
@@ -93,7 +193,8 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "placement": "top"
         },
         {
             "key": "field_54be642d45670",
@@ -130,5 +231,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1421763651
+    "modified": 1422871328
 }

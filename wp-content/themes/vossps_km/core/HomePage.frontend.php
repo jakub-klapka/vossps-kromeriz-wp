@@ -3,6 +3,7 @@
 namespace Lumi\Frontend;
 
 
+use TimberImage;
 use WP_Query;
 
 class HomePage {
@@ -10,6 +11,10 @@ class HomePage {
 	public function __construct() {
 
 		add_action( 'parse_query', array( $this, 'check_for_home' ) );
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'add_owl_script' ), 20 );
+
+		add_filter( 'timber_context', array( $this, 'add_slider' ) );
 
 	}
 
@@ -21,6 +26,28 @@ class HomePage {
 
 		$query->set( 'post_type', 'aktuality' );
 
+	}
+
+	public function add_owl_script() {
+		if( !is_home() ) return;
+
+		wp_enqueue_script( 'owl_carousel' );
+
+	}
+
+	public function add_slider( $data ) {
+		if( !is_home() ) return $data;
+
+		$slider = get_field( 'home_slider', 'option' );
+
+		foreach( $slider as $key => $item ) {
+			$slider[ $key ][ 'image' ] = new TimberImage( $item[ 'image' ] );
+		}
+
+		$data['slider'] = $slider;
+
+
+		return $data;
 	}
 
 }
