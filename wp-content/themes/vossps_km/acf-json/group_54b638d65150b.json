@@ -82,6 +82,28 @@
             "append": ""
         },
         {
+            "key": "field_54cf9ac987361",
+            "label": "SEO popisek",
+            "name": "seo_desc",
+            "prefix": "",
+            "type": "textarea",
+            "instructions": "Tento text se bude zobrazovat u v\u00fdsledk\u016f hled\u00e1n\u00ed va\u0161\u00ed str\u00e1nky v Googlu a dal\u0161\u00edch vyhled\u00e1va\u010d\u00edch. M\u011bl by obsahovat stru\u010dn\u00fd popis va\u0161\u00ed \u010dinnosti. Pro konkr\u00e9tn\u00ed str\u00e1nky m\u016f\u017eete tento text p\u0159epsat v administraci detailu str\u00e1nky.\r\nText by nem\u011bl b\u00fdt del\u0161\u00ed jak 155 znak\u016f.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
             "key": "field_54cf4aa3d6352",
             "label": "Slider na hlavn\u00ed str\u00e1nce",
             "name": "slider_na_hlavni_strance",
@@ -255,5 +277,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1422874384
+    "modified": 1422891873
 }

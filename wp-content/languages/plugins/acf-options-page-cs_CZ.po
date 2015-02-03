@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced Custom Fields: Options Page 1.1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/acf-options-page\n"
+"POT-Creation-Date: 2013-07-13 06:54:05+00:00\n"
+"PO-Revision-Date: Tue Sep 02 2014 17:06:33 GMT+0200 (Střední Evropa (letní "
+"čas))\n"
+"Last-Translator: Jakub Klapka <lapak@lumiart.cz>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: Czech\n"
+"Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : "
+"2\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Loco-Target-Locale: cs_CZ"
+
+#: ../acf-options-page-update.php:104
+msgid "What's new"
+msgstr ""
+
+#: ../acf-options-page.php:30 ../acf-options-page.php:31
+msgid "Options"
+msgstr "Nastavení"
+
+#: ../acf-options-page.php:201 ../acf-options-page.php:201
+msgid "Options Page"
+msgstr "Nastavení stránek"
+
+#: ../acf-options-page.php:333
+msgid "Options Updated"
+msgstr "Nastavení upraveno"
+
+#: ../acf-options-page.php:478
+msgid "No Custom Field Group found for the options page"
+msgstr ""
+
+#: ../acf-options-page.php:478
+msgid "Create a Custom Field Group"
+msgstr ""
+
+#: ../acf-options-page.php:489
+msgid "Publish"
+msgstr ""
+
+#: ../acf-options-page.php:493
+msgid "Save Options"
+msgstr "Uložit nastavení"

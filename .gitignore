@@ -1,6 +1,9 @@
 *
 !.gitignore
+!.htaccess
 !wp-content
+!wp-content/languages
+!wp-content/languages/**
 !wp-content/themes
 !wp-content/themes/vossps_km
 !wp-content/themes/vossps_km/**

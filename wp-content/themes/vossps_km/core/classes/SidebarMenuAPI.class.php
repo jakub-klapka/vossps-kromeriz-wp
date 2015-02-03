@@ -23,6 +23,8 @@ class SidebarMenuAPI {
 
 		$pages = $this->move_children_under_parents( $pages );
 
+		$pages = $this->filter_not_allowed_top_level_pages( $pages );
+
 		$pages = $this->change_menu_order_based_on_current_theme( $pages );
 
 		//sort children based on menu order
@@ -232,6 +234,23 @@ class SidebarMenuAPI {
 			}
 		}
 
+	}
+
+	private function filter_not_allowed_top_level_pages( $pages ) {
+		global $lumi;
+		$allowed = array(
+			$lumi['config']['ss_id'],
+			$lumi['config']['vos_id'],
+			$lumi['config']['dv_id']
+		);
+
+		foreach( $pages as $key => $page ) {
+			if( !in_array( $page->ID, $allowed ) ) {
+				unset( $pages[ $key ] );
+			}
+		}
+
+		return $pages;
 	}
 
 }

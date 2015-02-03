@@ -6,6 +6,25 @@ define( 'LUMI_TEXTDOMAIN', 'vossps_km' );
 
 
 /**
+ * Load Plugins translations
+ * Actually fix textdomains, where plugin don't have same textdomain as pluginname
+ */
+$plugins_textdomain_fix = array(
+//	'acf' => 'acf-options-page',
+	'baweic' => 'baw-invitation-codes',
+//	'sitepress' => 'sitepress-multilingual-cms',
+//	'contact-form-7-to-database-extension' => 'contact-form-7-to-database-extension',
+	'acf' => 'acf',
+	'ga-dash' => 'google-analytics-dashboard-for-wp'
+);
+foreach( $plugins_textdomain_fix as $textdomain => $file_name ) {
+	$file = WP_LANG_DIR . '/plugins/' . $file_name . '-' . get_locale() . '.mo';
+	if( file_exists( $file ) ) {
+		load_textdomain( $textdomain, $file );
+	}
+}
+
+/**
  * Var containing references to all theme objects
  * @var array $lumi array with all classes used in template, by namespace
  *      $lumi['Glob'|'Admin'|'Frontend'][class_name]
@@ -14,7 +33,7 @@ $lumi = array();
 global $lumi;
 
 $lumi['config'] = array(
-	'static_ver' => 1,
+	'static_ver' => 2,
 	'dokumenty_id' => 98,
 	'fotogalerie_id' => 100,
 	'ss_id' => 22,

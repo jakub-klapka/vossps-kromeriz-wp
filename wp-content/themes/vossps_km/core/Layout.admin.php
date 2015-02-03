@@ -20,7 +20,15 @@ class Layout {
 
 
 		}
+
+		add_action( 'acf/save_post', array( $this, 'save_sitedesc' ), 20 );
 	
+	}
+
+	public function save_sitedesc( $page_id ) {
+		if( $page_id !== 'options' || !current_user_can( 'edit_posts' ) ) return;
+
+		update_option( 'blogdescription', get_field( 'seo_desc', 'option' ) );
 	}
 
 }
