@@ -153,7 +153,7 @@ class Layout {
 	}
 
 	public function add_admin_url( $context ) {
-		$context['admin_url'] = admin_url();
+		$context['admin_url'] = ( is_user_logged_in() ) ? admin_url() : trailingslashit( get_bloginfo( 'url' ) ) . 'administrace';
 		return $context;
 	}
 

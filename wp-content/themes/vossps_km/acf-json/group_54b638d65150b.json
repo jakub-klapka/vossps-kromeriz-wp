@@ -144,7 +144,7 @@
                     "name": "image",
                     "prefix": "",
                     "type": "image",
-                    "instructions": "Nahr\u00e1vejte obr\u00e1zky o \u0161\u00ed\u0159ce alespo\u0148 1980px. Obr\u00e1zky budou automaticky zmen\u0161eny na v\u00fd\u0161ku 340px.",
+                    "instructions": "Nahr\u00e1vejte obr\u00e1zky o \u0161\u00ed\u0159ce alespo\u0148 1980px. Obr\u00e1zky budou automaticky zmen\u0161eny na v\u00fd\u0161ku 340px.<br\/><br\/>\r\nObr\u00e1zek by m\u011bl m\u00edt hlavn\u00ed motiv uprost\u0159ed. Na velk\u00fdch monitorech se obr\u00e1zek roztahuje hodn\u011b do \u0161\u00ed\u0159ky a z\u016fst\u00e1v\u00e1 viditeln\u00e1 pouze jeho prost\u0159edn\u00ed \u010d\u00e1st.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -277,5 +277,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1422891873
+    "modified": 1423047479
 }
