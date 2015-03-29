@@ -81,7 +81,11 @@
 		{% set icon = ( page_theme == 'none' ) ? 'books' : icon %}
 		{% set icon = ( page_theme == 'vos' ) ? 'graduation' : icon %}
 		{% set icon = ( page_theme == 'dv' ) ? 'presentation' : icon %}
-		<h1>{% if icon %}<span class="heading_icon" aria-hidden="true"><svg><use xlink:href="#icon-{{ icon }}"></use></svg></span>{% endif %}{% block page_title %}{{ post.title }}{% endblock %}</h1>
+		<h1>
+			{% if icon %}<span class="heading_icon" aria-hidden="true"><svg><use xlink:href="#icon-{{ icon }}"></use></svg></span>{% endif %}
+			{% block page_title %}{{ post.title }}{% endblock %}
+			{% block main_heading_after %}{% endblock %}
+		</h1>
 
 		{% block main_content %}
 
