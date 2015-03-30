@@ -24,6 +24,13 @@ class Studium {
 		if( $current_screen->base !== 'post' || $current_screen->post_type !== 'studium' ) return;
 
 		global $lumi;
+		global $post;
+		$restricted = array( $lumi['config']['ss_id'], $lumi['config']['vos_id'], $lumi['config']['dv_id'] );
+
+		if( in_array( $post->ID, $restricted ) ) return;
+
+
+		global $lumi;
 		wp_enqueue_script( 'ped_remove_parent_studium', get_template_directory_uri() . '/assets/admin_js/remove_parent_studium.js', array( 'jquery' ), $lumi['config']['static_ver'], true );
 
 	}
