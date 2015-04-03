@@ -3,6 +3,14 @@
 
 {% block page_title %}{{ page_title }}{% endblock %}
 
+
+{% block main_heading_after %}
+	{% if page_theme == 'ss' %}
+		{% include '_zakovska_image.twig' %}
+	{% endif %}
+{% endblock %}
+
+
 {% block main_content %}
 
 	<div class="main_content__news">

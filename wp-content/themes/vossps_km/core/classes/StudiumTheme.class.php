@@ -11,6 +11,11 @@ class StudiumTheme {
 		global $lumi;
 		if( isset( $lumi['studium_theme'] ) ) return $lumi['studium_theme'];
 
+		if( is_home() ) {
+			$lumi['studium_theme'] = 'none';
+			return 'none';
+		}
+
 		//if aktuality
 		$aktuality_theme = AktualityTheme::getTheme();
 		if( $aktuality_theme !== 'none' ) {

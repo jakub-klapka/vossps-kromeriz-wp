@@ -27,7 +27,5 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block main_heading_after %}
-	<a href="https://217.115.247.154:4443/bakaweb/login.aspx" class="home_heading_zakovska">
-		<img class="home_heading_zakovska__image" src="{{ theme.uri }}/assets/images/el_zakovska.svg" alt="Elektronická Žákovská"/>
-	</a>
+	{% include '_zakovska_image.twig' %}
 {% endblock %}
