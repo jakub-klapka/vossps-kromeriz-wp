@@ -144,7 +144,7 @@
                     "name": "image",
                     "prefix": "",
                     "type": "image",
-                    "instructions": "Nahr\u00e1vejte obr\u00e1zky o \u0161\u00ed\u0159ce alespo\u0148 1980px. Obr\u00e1zky budou automaticky zmen\u0161eny na v\u00fd\u0161ku 340px.<br\/><br\/>\r\nObr\u00e1zek by m\u011bl m\u00edt hlavn\u00ed motiv uprost\u0159ed. Na velk\u00fdch monitorech se obr\u00e1zek roztahuje hodn\u011b do \u0161\u00ed\u0159ky a z\u016fst\u00e1v\u00e1 viditeln\u00e1 pouze jeho prost\u0159edn\u00ed \u010d\u00e1st.",
+                    "instructions": "Nahr\u00e1vejte obr\u00e1zky o \u0161\u00ed\u0159ce alespo\u0148 1980px. Obr\u00e1zky budou automaticky zmen\u0161eny na v\u00fd\u0161ku 340px.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -154,7 +154,14 @@
                     },
                     "return_format": "id",
                     "preview_size": "thumbnail",
-                    "library": "all"
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": ""
                 },
                 {
                     "key": "field_54cf4affd6355",
@@ -260,6 +267,56 @@
             "tabs": "all",
             "toolbar": "full",
             "media_upload": 1
+        },
+        {
+            "key": "field_5526cea18705a",
+            "label": "Extern\u00ed odkazy",
+            "name": "",
+            "prefix": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top"
+        },
+        {
+            "key": "field_5526ceb58705b",
+            "label": "Odkaz na \"Elektronickou \u017e\u00e1kovskou\"",
+            "name": "zakovska_link",
+            "prefix": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5526ceda8705c",
+            "label": "Facebook odkaz v menu",
+            "name": "menu_facebook_link",
+            "prefix": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -277,5 +334,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1423047479
+    "modified": 1428606745
 }

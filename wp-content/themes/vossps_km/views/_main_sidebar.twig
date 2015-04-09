@@ -30,6 +30,18 @@
 						{% endif %}
 					</li>
 				{% endfor %}
+				{% if facebook_link %}
+					<li class="main_sidebar__nav__ul__item is-image_link">
+						<a href="{{ facebook_link }}" itemprop="name url" target="_blank">
+							<img src="{{ theme.uri }}/assets/images/facebook_menu_button.png" alt="Facebook"/>
+						</a>
+					</li>
+				{% endif %}
+				{% if uzitecne_odkazy_link %}
+					<li class="main_sidebar__nav__ul__item is-text_link">
+						<a href="{{ uzitecne_odkazy_link }}" itemprop="name url">Užitečné odkazy</a>
+					</li>
+				{% endif %}
 			</ul>
 		</nav>
 	{% endif %}

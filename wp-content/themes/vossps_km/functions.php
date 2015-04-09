@@ -44,7 +44,8 @@ $lumi['config'] = array(
 	'dv_id' => 26,
 	'tax_vos_id' => 4,
 	'tax_ss_id' => 3,
-	'tax_dv_id' => 5
+	'tax_dv_id' => 5,
+	'uzitecne_odkazy_id' => 876
 );
 
 

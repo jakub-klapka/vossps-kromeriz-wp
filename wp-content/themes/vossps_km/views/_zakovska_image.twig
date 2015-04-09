@@ -1,3 +1,5 @@
-<a href="https://217.115.247.154:4443/bakaweb/login.aspx" class="home_heading_zakovska">
-	<img class="home_heading_zakovska__image" src="{{ theme.uri }}/assets/images/el_zakovska.svg" alt="Elektronická Žákovská"/>
-</a>
+{% if zakovska_link %}
+	<a href="{{ zakovska_link }}" class="home_heading_zakovska">
+		<img class="home_heading_zakovska__image" src="{{ theme.uri }}/assets/images/el_zakovska.svg" alt="Elektronická Žákovská"/>
+	</a>
+{% endif %}

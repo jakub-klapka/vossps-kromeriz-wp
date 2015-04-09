@@ -53,6 +53,8 @@ class Layout {
 
 		add_filter( 'timber_context', array( $this, 'ped_gallery' ) );
 
+		add_filter( 'timber_context', array( $this, 'external_links' ) );
+
 	}
 
 	public function enqueue_scripts() {
@@ -247,6 +249,14 @@ class Layout {
 		wp_enqueue_style( 'ped_gallery' );
 		wp_enqueue_script( 'ped_gallery' );
 
+	}
+
+	public function external_links( $data ) {
+		global $lumi;
+		$data[ 'zakovska_link' ] = get_field( 'zakovska_link', 'option' );
+		$data[ 'facebook_link' ] = get_field( 'menu_facebook_link', 'option' );
+		$data[ 'uzitecne_odkazy_link' ] = get_permalink( $lumi[ 'config' ][ 'uzitecne_odkazy_id' ] );
+		return $data;
 	}
 
 }
