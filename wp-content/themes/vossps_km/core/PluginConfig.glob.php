@@ -40,8 +40,18 @@ class PluginConfig {
 
 
 		add_action('user_register', array( $this, 'set_user_metaboxes' ) );
+		
+		/*
+		 * Zalomeni
+		 */
+		add_filter( 'zalomeni_filtry', array( $this, 'add_custom_zalomeni_filter' ) );
 
 
+	}
+
+	public function add_custom_zalomeni_filter( $filters ) {
+		$filters[] = 'lumi_zalomeni';
+		return $filters;
 	}
 
 	public function my_login_logo() { ?>

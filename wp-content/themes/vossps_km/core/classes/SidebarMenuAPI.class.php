@@ -101,6 +101,11 @@ class SidebarMenuAPI {
 
 		}
 
+		//Run all titles through zalomeni
+		foreach( $output as $key => $item ) {
+			$output[ $key ]->post_title = apply_filters( 'lumi_zalomeni', $output[ $key ]->post_title );
+		};
+
 		return $output;
 
 	}
