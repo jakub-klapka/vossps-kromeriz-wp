@@ -19,6 +19,7 @@ class Layout {
 	private $ss_id;
 	private $vos_id;
 	private $dv_id;
+	private $spp_id;
 
 
 	public function __construct() {
@@ -30,6 +31,7 @@ class Layout {
 		$this->ss_id = $lumi['config']['ss_id'];
 		$this->vos_id = $lumi['config']['vos_id'];
 		$this->dv_id = $lumi['config']['dv_id'];
+		$this->spp_id = $lumi['config']['spp_id'];
 
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -138,6 +140,9 @@ class Layout {
 					break;
 				case( $this->dv_id ):
 					$flatered_menu[$key]['is_dv'] = true;
+					break;
+				case( $this->spp_id ):
+					$flatered_menu[$key]['is_spp'] = true;
 			}
 		}
 

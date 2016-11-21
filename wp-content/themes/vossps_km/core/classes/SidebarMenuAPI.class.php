@@ -91,7 +91,7 @@ class SidebarMenuAPI {
 		if( !empty( $include_also ) ){
 
 			$current_ancestors = new WP_Query( array(
-				'post_type' => 'studium',
+				'post_type' => 'studium', 'spp',
 				'posts_per_page' => -1,
 				'post__in' => $include_also,
 				'post_parent__not_in' => array( 0 )
@@ -246,7 +246,8 @@ class SidebarMenuAPI {
 		$allowed = array(
 			$lumi['config']['ss_id'],
 			$lumi['config']['vos_id'],
-			$lumi['config']['dv_id']
+			$lumi['config']['dv_id'],
+			$lumi['config']['spp_id']
 		);
 
 		foreach( $pages as $key => $page ) {

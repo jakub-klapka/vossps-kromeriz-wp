@@ -7,3 +7,6 @@
 !wp-content/themes
 !wp-content/themes/vossps_km
 !wp-content/themes/vossps_km/**
+!wp-content/plugins
+!wp-content/plugins/disable-delete-post-or-page-link-wordpress-plugin
+!wp-content/plugins/disable-delete-post-or-page-link-wordpress-plugin/**

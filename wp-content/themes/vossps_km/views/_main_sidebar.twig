@@ -12,11 +12,16 @@
 					{% if menu_item.is_dv %}
 						{% set li_class, icon_name = 'is-dalsi', 'presentation' %}
 					{% endif %}
+					{% if menu_item.is_spp %}
+						{% set li_class, icon_name = 'is-spp', 'none' %}
+					{% endif %}
 					<li class="main_sidebar__nav__ul__item {{ li_class }}">
 						<a href="{{ menu_item.url }}" itemprop="name url">
-							<div class="main_sidebar__nav__ul__item__icon" aria-hidden="true">
-								<svg><use xlink:href="#icon-{{ icon_name }}"></use></svg>
-							</div>
+							{% if icon_name != 'none' %}
+								<div class="main_sidebar__nav__ul__item__icon" aria-hidden="true">
+									<svg><use xlink:href="#icon-{{ icon_name }}"></use></svg>
+								</div>
+							{% endif %}
 							<span>{{ menu_item.name }}</span>
 						</a>
 						{% if menu_item.children %}

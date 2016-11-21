@@ -1,7 +1,7 @@
 <?php
 
 define( 'LUMI_CORE_PATH', get_template_directory() . '/core/' );
-define( 'LUMI_CSS_JS_VER', 1 );
+define( 'LUMI_CSS_JS_VER', 2 );
 define( 'LUMI_TEXTDOMAIN', 'vossps_km' );
 
 if (class_exists('Timber')){
@@ -42,6 +42,7 @@ $lumi['config'] = array(
 	'ss_id' => 22,
 	'vos_id' => 24,
 	'dv_id' => 26,
+	'spp_id' => 2908,
 	'tax_vos_id' => 4,
 	'tax_ss_id' => 3,
 	'tax_dv_id' => 5,

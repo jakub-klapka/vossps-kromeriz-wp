@@ -103,8 +103,8 @@
 	</files>
 
 	# Enable the hide backend feature - Security > Settings > Hide Login Area > Hide Backend
-	RewriteRule ^(/)?administrace/?$ /wp-login.php [QSA,L]
-	RewriteRule ^(/)?wp-register-php/?$ /wplogin?action=register [QSA,L]
+	RewriteRule ^(/)?vossps_kromeriz/wp/administrace/?$ /wp-login.php [QSA,L]
+	RewriteRule ^(/)?vossps_kromeriz/wp/wp-register-php/?$ /wplogin?action=register [QSA,L]
 # END iThemes Security - Do not modify or remove this line
 
 # HTML5BP
@@ -450,4 +450,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /vossps_kromeriz/wp/index.php [L]
 </IfModule>
+
 # END WordPress
