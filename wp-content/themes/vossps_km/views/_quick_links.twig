@@ -19,6 +19,7 @@
 			<svg class="quick_links__wrap__item__icon" title="E-mail" alt="E-mail"><use xlink:href="#icon-letter"></use></svg>
 			<div class="quick_links__wrap__item__content">
 				{% filter shortcodes %}[lumi-email]{{ school_email }}[/lumi-email]{% endfilter %}
+				{% if school_email_below %}<br/>{{ school_email_below }}{% endif %}
 			</div>
 		</div>
 

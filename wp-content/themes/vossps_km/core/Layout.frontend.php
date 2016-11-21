@@ -102,11 +102,14 @@ class Layout {
 		$data['school_address'] = get_field( 'school_address', 'option' );
 		$data['school_tel'] = get_field( 'school_tel', 'option' );
 		$data['school_email'] = get_field( 'school_email', 'option' );
+		$data['school_email_below'] = get_field( 'school_email_below', 'option' );
 		return $data;
 	}
 
 	public function strogify_acf_output( $value, $post_id, $field ) {
-		if( $field['name'] !== 'school_address' && $field['name'] !== 'school_tel' ) return $value;
+		if( $field['name'] !== 'school_address'
+		    && $field['name'] !== 'school_tel'
+		    && $field['name'] !== 'school_email_below' ) return $value;
 
 		$value = preg_replace( '/\*\*([\s\S]*?)\*\*/', '<strong>$1</strong>', $value );
 		return $value;

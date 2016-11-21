@@ -6,7 +6,6 @@
             "key": "field_54be64184566e",
             "label": "Hlavi\u010dka str\u00e1nek",
             "name": "",
-            "prefix": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -16,13 +15,13 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top"
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_54b638e8aa43d",
             "label": "Adresa \u0161koly",
             "name": "school_address",
-            "prefix": "",
             "type": "textarea",
             "instructions": "Text mezi <strong>**hv\u011bzdi\u010dkami**<\/strong> bude tu\u010dn\u00fd.",
             "required": 0,
@@ -44,7 +43,6 @@
             "key": "field_54b63ce3cca70",
             "label": "Telefon \u0161koly",
             "name": "school_tel",
-            "prefix": "",
             "type": "textarea",
             "instructions": "Text mezi <strong>**hv\u011bzdi\u010dkami**<\/strong> bude tu\u010dn\u00fd.",
             "required": 0,
@@ -66,7 +64,6 @@
             "key": "field_54b63d00cca71",
             "label": "E-mail \u0161koly",
             "name": "school_email",
-            "prefix": "",
             "type": "email",
             "instructions": "",
             "required": 0,
@@ -82,10 +79,28 @@
             "append": ""
         },
         {
+            "key": "field_57dc331826280",
+            "label": "Text pod e-mailem",
+            "name": "school_email_below",
+            "type": "text",
+            "instructions": "Text mezi <strong>**hv\u011bzdi\u010dkami**<\/strong> bude tu\u010dn\u00fd.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_54cf9ac987361",
             "label": "SEO popisek",
             "name": "seo_desc",
-            "prefix": "",
             "type": "textarea",
             "instructions": "Tento text se bude zobrazovat u v\u00fdsledk\u016f hled\u00e1n\u00ed va\u0161\u00ed str\u00e1nky v Googlu a dal\u0161\u00edch vyhled\u00e1va\u010d\u00edch. M\u011bl by obsahovat stru\u010dn\u00fd popis va\u0161\u00ed \u010dinnosti. Pro konkr\u00e9tn\u00ed str\u00e1nky m\u016f\u017eete tento text p\u0159epsat v administraci detailu str\u00e1nky.\r\nText by nem\u011bl b\u00fdt del\u0161\u00ed jak 155 znak\u016f.",
             "required": 0,
@@ -107,7 +122,6 @@
             "key": "field_54cf4aa3d6352",
             "label": "Slider na hlavn\u00ed str\u00e1nce",
             "name": "slider_na_hlavni_strance",
-            "prefix": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -117,13 +131,13 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top"
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_54cf4ab6d6353",
             "label": "Obr\u00e1zky slideru",
             "name": "home_slider",
-            "prefix": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -142,7 +156,6 @@
                     "key": "field_54cf4ad4d6354",
                     "label": "Obr\u00e1zek",
                     "name": "image",
-                    "prefix": "",
                     "type": "image",
                     "instructions": "Nahr\u00e1vejte obr\u00e1zky o \u0161\u00ed\u0159ce alespo\u0148 1980px. Obr\u00e1zky budou automaticky zmen\u0161eny na v\u00fd\u0161ku 340px.",
                     "required": 0,
@@ -167,7 +180,6 @@
                     "key": "field_54cf4affd6355",
                     "label": "Nadpis",
                     "name": "heading",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -189,7 +201,6 @@
                     "key": "field_54cf4b0cd6356",
                     "label": "Popis",
                     "name": "desc",
-                    "prefix": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -207,13 +218,13 @@
                     "readonly": 0,
                     "disabled": 0
                 }
-            ]
+            ],
+            "collapsed": ""
         },
         {
             "key": "field_54cf56e97741f",
             "label": "Prodleva ot\u00e1\u010den\u00ed slideru",
             "name": "home_slider_timeout",
-            "prefix": "",
             "type": "number",
             "instructions": "",
             "required": 1,
@@ -237,7 +248,6 @@
             "key": "field_54be64254566f",
             "label": "Obecn\u011b o \u0161kole",
             "name": "",
-            "prefix": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -247,13 +257,13 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top"
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_54be642d45670",
             "label": "Obecn\u011b o \u0161kole",
             "name": "about_school",
-            "prefix": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -272,7 +282,6 @@
             "key": "field_5526cea18705a",
             "label": "Extern\u00ed odkazy",
             "name": "",
-            "prefix": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -282,13 +291,13 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top"
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_5526ceb58705b",
             "label": "Odkaz na \"Elektronickou \u017e\u00e1kovskou\"",
             "name": "zakovska_link",
-            "prefix": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -305,7 +314,6 @@
             "key": "field_5526ceda8705c",
             "label": "Facebook odkaz v menu",
             "name": "menu_facebook_link",
-            "prefix": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -334,5 +342,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1428606745
+    "active": 1,
+    "description": "",
+    "modified": 1474048825
 }
