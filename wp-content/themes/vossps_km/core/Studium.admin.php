@@ -38,7 +38,7 @@ class Studium {
 	public function restrict_root_items_edit_screen() {
 
 		global $lumi;
-		$restricted = array( $lumi['config']['ss_id'], $lumi['config']['vos_id'], $lumi['config']['dv_id'], $lumi['config']['spp_id'] );
+		$restricted = array( $lumi['config']['ss_id'], $lumi['config']['vos_id'], $lumi['config']['dv_id'] );
 
 		if( is_admin()
 		    && isset( $_GET['action'] )
@@ -65,7 +65,7 @@ class Studium {
 
 	public function remove_edit_from_edit_screen( $actions, $post ) {
 		global $lumi;
-		$restricted = array( $lumi['config']['ss_id'], $lumi['config']['vos_id'], $lumi['config']['dv_id'], $lumi['config']['spp_id'] );
+		$restricted = array( $lumi['config']['ss_id'], $lumi['config']['vos_id'], $lumi['config']['dv_id'] );
 
 		if( in_array( $post->ID, $restricted ) ) {
 			unset( $actions[ 'edit' ] );
